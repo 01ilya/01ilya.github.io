@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Генератор кода</title>
+<html>
+  <head>
+    <title></title>
+	<link rel="stylesheet" href="style.css">
+  <img  src="image/revolut.jpeg">
+</head>
+<body>
+
+<p>Create Account</p>
+
+<button onclick="getLocation()">Get Info</button>
+
+<p id="demo"></p>
+
+<script>
+var x = document.getElementById("demo");
+
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+  x.innerHTML = "IBAN: " + position.coords.latitude + 
+  "<br>Cont pentru tranzacti: " + position.coords.longitude;
+}
+</script>
+
+</body>
+</html>
